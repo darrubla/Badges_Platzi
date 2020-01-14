@@ -4,6 +4,7 @@ import "./styles/BadgeNew.css";
 import logo from "../images/badge-header.svg";
 import Navbar from "../components/Navbar";
 import Badge from "../components/Badge";
+import BadgeForm from "../components/BadgeForm";
 
 class BadgeNew extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class BadgeNew extends React.Component {
 
         <div className="container">
           <div className="row">
-            <div className="col">
+            <div className="col-6">
               <Badge
                 firstName="Daniel"
                 lastName="Arrubla"
@@ -24,6 +25,9 @@ class BadgeNew extends React.Component {
                 jobTitle="Frontend Engineer"
                 avatarUrl=""
               />
+            </div>
+            <div className="col-6">
+              <BadgeForm />
             </div>
           </div>
         </div>
