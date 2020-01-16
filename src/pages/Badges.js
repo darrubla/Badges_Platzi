@@ -7,6 +7,8 @@ import BadgesList from "../components/BadgesList";
 import PageLoading from "../components/PageLoading";
 import api from "../api";
 import PageError from "../components/PageError";
+import MiniLoader from "../components/MiniLoader";
+import { clearInterval } from "timers";
 
 class Badges extends React.Component {
   state = {
@@ -17,6 +19,12 @@ class Badges extends React.Component {
 
   componentDidMount() {
     this.fetchData();
+
+    this.intervalID = setInterval(this.fetchData, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   fetchData = async () => {
@@ -31,7 +39,7 @@ class Badges extends React.Component {
   };
 
   render() {
-    if (this.state.loading === true) {
+    if (this.state.loading === true && !this.state.data) {
       return <PageLoading />;
     }
 
@@ -44,23 +52,25 @@ class Badges extends React.Component {
         <div className="Badges">
           <div className="Badges__hero">
             <div className="Badges__container">
-              <img className="Badges_conf-logo" src={confLogo} alt="Logo" />
+              <img
+                className="Badges_conf-logo"
+                src={confLogo}
+                alt="Conf Logo"
+              />
             </div>
           </div>
         </div>
 
-        <div className="Badge__container">
+        <div className="Badges__container">
           <div className="Badges__buttons">
             <Link to="/badges/new" className="btn btn-primary">
               New Badge
             </Link>
           </div>
 
-          <div className="Badges__container">
-            <div>
-              <BadgesList badges={this.state.data} />
-            </div>
-          </div>
+          <BadgesList badges={this.state.data} />
+
+          {this.state.loading && <MiniLoader />}
         </div>
       </React.Fragment>
     );

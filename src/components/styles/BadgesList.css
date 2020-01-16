@@ -1,19 +1,13 @@
-.BadgesList {
-  background: #ffffff;
+.BadgesList ul > li {
   margin-bottom: 1rem;
-  display: flex;
-  padding: 1rem0;
-  width: 600px;
 }
 
 .BadgesListItem {
   background: #ffffff;
-  border-radius: 30px30px30px30px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
-  border-radius: 5px;
+  box-shadow: 1px 3px 4px 1px rgba(0, 0, 0, 0.23);
+  border-radius: 12px;
   display: flex;
   padding: 1rem;
-  width: 100%;
 }
 
 .BadgesListItem__avatar {
@@ -23,7 +17,6 @@
   width: 80px;
   height: 80px;
 }
-
 .BadgesListItem__twitter {
   color: dodgerblue;
 }
