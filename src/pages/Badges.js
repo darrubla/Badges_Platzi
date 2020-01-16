@@ -8,7 +8,6 @@ import PageLoading from "../components/PageLoading";
 import api from "../api";
 import PageError from "../components/PageError";
 import MiniLoader from "../components/MiniLoader";
-import { clearInterval } from "timers";
 
 class Badges extends React.Component {
   state = {
@@ -19,8 +18,7 @@ class Badges extends React.Component {
 
   componentDidMount() {
     this.fetchData();
-
-    this.intervalID = setInterval(this.fetchData, 5000);
+    //this.intervalID = setInterval(this.fetchData, 5000);
   }
 
   componentWillUnmount() {
