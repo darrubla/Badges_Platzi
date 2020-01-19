@@ -1,5 +1,6 @@
 .bg__image {
-  width: 80%;
-  background-image: url("../../images/404s_barbrady.jpg");
   background-size: cover;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
